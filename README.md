@@ -63,7 +63,7 @@ The host-only adapter keeps all lab traffic isolated from the internet — the c
 
 **Reference:** [Official Wazuh Quickstart Guide](https://documentation.wazuh.com/current/quickstart.html)
 
-> ![Screenshot 1 — Official Wazuh documentation](screenshots/01_wazuh_documentation.JPG)
+> ![Screenshot 1 — Official Wazuh documentation](Wazuh%20Deployment%20screenshots/01_wazuh_documentation.JPG)
 > *Official Wazuh 4.14 Quickstart documentation*
 
 ### Installation Command
@@ -76,7 +76,7 @@ curl -sO https://packages.wazuh.com/4.14/wazuh-install.sh && sudo bash ./wazuh-i
 
 The `-a` flag deploys all three components (Indexer, Manager, Dashboard) on the same host.
 
-> ![Screenshot 2 — Installation starting](screenshots/02_installation_start.JPG)
+> ![Screenshot 2 — Installation starting](Wazuh%20Deployment%20screenshots/02_installation_start.JPG)
 > *Installation starting — Wazuh 4.14.5 confirmed, dependencies resolving*
 
 ### Installation Sequence
@@ -112,7 +112,7 @@ INFO: Installation finished.
 
 > ⚠️ **Save your credentials immediately.** The auto-generated password is displayed only once at the end of installation.
 
-> ![Screenshot 3 — Installation complete](screenshots/03_installation_complete.JPG)
+> ![Screenshot 3 — Installation complete](Wazuh%20Deployment%20screenshots/03_installation_complete.JPG)
 > *Installation complete — all three components running, credentials shown at bottom *
 
 ### Accessing the Dashboard
@@ -127,7 +127,7 @@ If accessing from a different machine on the same network:
 https://192.168.4.55
 ```
 
-> ![Screenshot 4 — Dashboard first login](screenshots/04_dashboard_first_login.JPG)
+> ![Screenshot 4 — Dashboard first login](Wazuh%20Deployment%20screenshots/04_dashboard_first_login.JPG)
 > *Wazuh Dashboard on first login — no agents registered yet, manager already generating baseline alerts*
 
 ---
@@ -150,10 +150,10 @@ Configure the wizard with:
 
 > ⚠️ Agent names are permanent. They cannot be changed after enrolment.
 
-> ![Screenshot 5 — Deploy wizard Windows package](screenshots/05_deploy_agent_windows_package.JPG)
+> ![Screenshot 5 — Deploy wizard Windows package](Wazuh%20Deployment%20screenshots/05_deploy_agent_windows_package.JPG)
 > *Deploy new agent — Windows MSI 32/64 bit selected*
 
-> ![Screenshot 6 — Deploy wizard Windows config](screenshots/06_deploy_agent_windows_config.JPG)
+> ![Screenshot 6 — Deploy wizard Windows config](Wazuh%20Deployment%20screenshots/06_deploy_agent_windows_config.JPG)
 > *Server address and agent name configured*
 
 ### Step 2 — Run the Command on Windows 10
@@ -168,10 +168,10 @@ Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.14.5
 
 > ⚠️ **Administrator privileges are mandatory.** The installation will fail silently without elevation.
 
-> ![Screenshot 7 — Windows PowerShell command](screenshots/07_deploy_agent_windows_command.JPG)
+> ![Screenshot 7 — Windows PowerShell command](Wazuh%20Deployment%20screenshots/07_deploy_agent_windows_command.JPG)
 > *Wazuh-generated PowerShell command ready to run*
 
-> ![Screenshot 8 — Windows agent downloading](screenshots/08_windows_agent_downloading.JPG)
+> ![Screenshot 8 — Windows agent downloading](Wazuh%20Deployment%20screenshots/08_windows_agent_downloading.JPG)
 > *PowerShell downloading the Wazuh MSI — 524,086 bytes written*
 
 ### Step 3 — Start the Agent Service
@@ -186,7 +186,7 @@ The Wazuh service is starting.
 The Wazuh service was started successfully.
 ```
 
-> ![Screenshot 9 — Windows agent started](screenshots/09_windows_agent_started.JPG)
+> ![Screenshot 9 — Windows agent started](Wazuh%20Deployment%20screenshots/09_windows_agent_started.JPG)
 > *Wazuh service started successfully on Windows 10*
 
 ### Step 4 — Verify in Dashboard
@@ -197,7 +197,7 @@ The Agents Summary in the Wazuh Dashboard should now show:
 Active (1)    Disconnected (0)
 ```
 
-> ![Screenshot 10 — Dashboard Active 1](screenshots/10_dashboard_active_1.JPG)
+> ![Screenshot 10 — Dashboard Active 1](Wazuh%20Deployment%20screenshots/10_dashboard_active_1.JPG)
 > *Wazuh Dashboard confirming Windows 10 agent is live*
 
 ---
@@ -218,7 +218,7 @@ Configure the wizard with:
 - **Agent name:** `kali`
 - **Group:** Default
 
-> ![Screenshot 11 — Deploy wizard Kali config](screenshots/11_deploy_agent_kali_config.JPG)
+> ![Screenshot 11 — Deploy wizard Kali config](Wazuh%20Deployment%20screenshots/11_deploy_agent_kali_config.JPG)
 > *Linux DEB amd64 selected, agent named "kali"*
 
 ### Step 2 — Run the Command on Kali Linux
@@ -228,10 +228,10 @@ wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.14
   && sudo WAZUH_MANAGER='192.168.4.55' WAZUH_AGENT_NAME='kali' dpkg -i ./wazuh-agent_4.14.5-1_amd64.deb
 ```
 
-> ![Screenshot 12 — Kali agent command](screenshots/12_deploy_agent_kali_command.JPG)
+> ![Screenshot 12 — Kali agent command](Wazuh%20Deployment%20screenshots/12_deploy_agent_kali_command.JPG)
 > *Wazuh-generated wget command for the Linux DEB agent*
 
-> ![Screenshot 13 — Kali agent installing](screenshots/13_kali_agent_installing.JPG)
+> ![Screenshot 13 — Kali agent installing](Wazuh%20Deployment%20screenshots/13_kali_agent_installing.JPG)
 > *Agent downloading at 1.97 MB/s and installing via dpkg on Kali Linux*
 
 ### Step 3 — Enable and Start the Agent
@@ -252,7 +252,7 @@ The Agents Summary should now show:
 Active (2)    Disconnected (0)
 ```
 
-> ![Screenshot 14 — Dashboard Active 2](screenshots/14_dashboard_active_2.JPG)
+> ![Screenshot 14 — Dashboard Active 2](Wazuh%20Deployment%20screenshots/14_dashboard_active_2.JPG)
 > *Both Windows 10 and Kali Linux agents active — 533 medium and 737 low severity alerts already live*
 
 ---
@@ -292,7 +292,7 @@ With two active agents enrolled, the following Wazuh capabilities are active and
 ```
 wazuh-xdr-siem-deployment/
 ├── README.md
-└── screenshots/
+└── Wazuh%20Deployment%20screenshots/
     ├── 01_wazuh_documentation.JPG
     ├── 02_installation_start.JPG
     ├── 03_installation_complete.JPG
